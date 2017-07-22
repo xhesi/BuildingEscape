@@ -2,6 +2,7 @@
 
 #include "BuildingEscape.h"
 #include "PositionReport.h"
+#include "Gameframework/actor.h"
 
 
 // Sets default values for this component's properties
@@ -20,7 +21,12 @@ void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	FString ObjectName = GetOwner()->GetName();
+	FString ObjectPos = "X= something, Y=something else, etc";
+	ObjectPos = GetOwner()->GetTransform().GetLocation().ToString();
+	UE_LOG(LogTemp, Warning, TEXT("%s ist at %s"), *ObjectName, *ObjectPos);
+
+	//UE_LOG(LogTemp, Warning, TEXT("Position report reporting for duty on "));
 	
 }
 
