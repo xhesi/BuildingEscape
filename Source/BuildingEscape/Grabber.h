@@ -21,9 +21,25 @@ public:
 	// Called every frame
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
 
+private:
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+	UInputComponent* InputComponent = nullptr;
 	// grabbing reach
 	UPROPERTY(EditAnywhere)
-	float Reach = 50.f;
-		
+	float Reach = 150.f;
+
+	// ray-cast and grab what's in reach
+	void Grab();
+
+	// Called when grab is released
+	void Release();
+
+	// Find (assumed) attached physics handle
+	void FindPhysicsHandleComponent();
+
+	// Setup (assumed) attached input component
+	void SetupInputComponent();
 	
+	// When gabbing, get the first object in reache via ray casting
+	FHitResult GetFirstPhysicsBodyInReach();
 };
