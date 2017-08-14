@@ -42,4 +42,10 @@ private:
 	
 	// When gabbing, get the first object in reache via ray casting
 	FHitResult GetFirstPhysicsBodyInReach();
+
+	FRotator InitialRotation;
+
+	FVector GetReachLineEnd();
+	FVector GetReachLineBegin();
+	FRotator GetPlayerRotation();
 };
